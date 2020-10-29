@@ -1,0 +1,50 @@
+{
+  "name": "r-trade-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "yarn run watch",
+    "start-nodemon": "dotenv -- nodemon --watch src -e ts,graphql -x node -r ts-node/register -r esm src/index.ts",
+    "debug": "dotenv -- nodemon --watch build -x node -r ts-node/register -r esm src/index.ts",
+    "build": "rm -rf && tsc",
+    "watch-ts": "tsc -w",
+    "watch-node": "dotenv -- nodemon --watch build -x node -r esm build/index.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn run watch-ts\" \"yarn run watch-node\"",
+    "serve": "node -r esm build/index.js",
+    "serve-debug": "node -r esm --inspect build/index.js",
+    "graphql-codegen": "graphql-codegen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://it.q-platform.ru/agryaznov/r-trade.git"
+  },
+  "bugs": {
+    "url": "https://it.q-platform.ru/agryaznov/r-trade/issues"
+  },
+  "homepage": "https://it.q-platform.ru/agryaznov/r-trade#readme",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.18.0",
+    "@graphql-codegen/typescript": "^1.17.11",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@graphql-codegen/typescript-resolvers": "^1.17.10",
+    "@prisma/cli": "^2.10.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/node": "^14.11.8",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.5",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
+  },
+  "dependencies": {
+    "@prisma/client": "2.10.0",
+    "apollo-server-express": "^2.18.2",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "graphql-middleware": "^4.0.2",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

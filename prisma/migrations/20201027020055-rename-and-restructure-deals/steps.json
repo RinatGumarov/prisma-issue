@@ -1,0 +1,265 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "BidModel",
+      "field": "demandDeal",
+      "type": "DealModel",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "demandDeal"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "demandDeal"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"demand_bid_deals\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "BidModel",
+      "field": "offerDeals",
+      "type": "DealModel",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "offerDeals"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "offerDeals"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"offer_bid_deals\""
+    },
+    {
+      "tag": "DeleteField",
+      "model": "BidModel",
+      "field": "buyerDeal"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "BidModel",
+      "field": "sellerDeal"
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "demandBidId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "offerBidId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "demandBid",
+      "type": "BidModel",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"demand_bid_deals\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[demandBidId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "offerBid",
+      "type": "BidModel",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "offerBid"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "offerBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"offer_bid_deals\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "offerBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[offerBidId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "offerBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "buyerBidId"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "sellerBidId"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "buyerBid"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "sellerBid"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "DealModel",
+          "arguments": [
+            {
+              "name": "",
+              "value": "[demandBidId, offerBidId]"
+            }
+          ]
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "DealModel",
+          "arguments": [
+            {
+              "name": "",
+              "value": "[buyerBidId, sellerBidId]"
+            }
+          ]
+        },
+        "directive": "unique"
+      }
+    }
+  ]
+}

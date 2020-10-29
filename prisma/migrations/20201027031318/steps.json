@@ -1,0 +1,67 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "demandDeal"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "demandDeal"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"myname\""
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "offerDeals"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "offerBidz",
+      "type": "BidModel",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "offerBid"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"myname\""
+    }
+  ]
+}

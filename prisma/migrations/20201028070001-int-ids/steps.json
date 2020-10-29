@@ -1,0 +1,129 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "UserModel",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "UserModel",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "UserModel",
+      "field": "companyId",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "CompanyModel",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CompanyModel",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "creatorId",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "locationId",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "DealModel",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "DealModel",
+      "field": "matcherId",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "LocationModel",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "LocationModel",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "calorieContent",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "moisture",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "volatileMatterRelease",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "BidModel",
+      "field": "sulfurContent",
+      "arity": "Optional"
+    }
+  ]
+}

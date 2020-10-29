@@ -1,0 +1,39 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "BidModel",
+      "field": "deals",
+      "type": "DealModel",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "BidModel",
+      "field": "demandDeal"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "BidModel",
+      "field": "offerDeals"
+    },
+    {
+      "tag": "CreateField",
+      "model": "DealModel",
+      "field": "bids",
+      "type": "BidModel",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "demandBid"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "DealModel",
+      "field": "offerBidz"
+    }
+  ]
+}

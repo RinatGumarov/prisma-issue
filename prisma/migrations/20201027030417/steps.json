@@ -1,0 +1,29 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "BidModel",
+          "field": "demandDeal"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "DeleteArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "DealModel",
+          "field": "demandBid"
+        },
+        "directive": "relation"
+      },
+      "argument": ""
+    }
+  ]
+}

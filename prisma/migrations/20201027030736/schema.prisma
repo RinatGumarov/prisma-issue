@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+enum Role {
+  BUYER
+  SELLER
+  MATCHER
+}
+
+enum Resourse {
+  COAL
+}
+
+enum BidType {
+  DEMAND
+  OFFER
+}
+
+enum CoalMark {
+  LONG_FLAME
+  LONG_FLAME_GAS
+  GAS
+  GAS_CAKING
+  GAS_FAT_WEAKLY_CAKING
+  GAS_FAT_SEMI_LEAN
+  GAS_FAT
+  FAT
+  FAT_SECOND
+  COKE_FAT
+  COKE
+  SEMI_LEAN_COKE
+  SEMI_LEAN_CAKING
+  COKE_WEAKLY_CAKING
+  LOW_METAMORPHOSED
+  WEAKLY_CAKING
+  LEAN_CAKING
+  LEAN
+}
+
+enum CoalFraction {
+  LEAN
+  PLATE
+  BIG
+  NUT
+  SMALL
+  SEED
+  RUBBLE
+  RAW
+}
+
+model UserModel {
+  id       String  @id @default(cuid())
+
+  email    String  @unique
+  fullName String?
+  phone    String?
+  password String
+  companyId String?
+
+  role     Role    @default(BUYER)
+  company CompanyModel? @relation(fields: [companyId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+model CompanyModel {
+  id       String  @id @default(cuid())
+
+  name String @unique
+  users UserModel[]
+
+  createdAt DateTime @default(now())
+
+  @@map("companies")
+}
+
+model BidModel {
+  id       String  @id @default(cuid())
+
+  volume Float
+  price Float
+  calorieContent String?
+  moisture String?
+  sulfurContent String?
+  volatileMatterRelease String?
+  creatorId String
+  locationId String
+  
+  type BidType
+  resourse Resourse
+  coalMark CoalMark
+  coalFraction CoalFraction
+  demandDeal DealModel 
+  offerDeals DealModel[] @relation("offer_bid_deals")
+  creator UserModel @relation(fields: [creatorId], references: [id])
+  location LocationModel @relation(fields: [locationId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("bids")
+
+}
+
+model DealModel {
+  id       String  @id @default(cuid())
+
+  demandBidId String
+  offerBidId String
+  matcherId String
+  
+  demandBid BidModel @relation(fields: [demandBidId], references: [id])
+  offerBid BidModel @relation("offer_bid_deals", fields: [offerBidId], references: [id])
+  matcher UserModel @relation(fields: [matcherId], references: [id])
+
+  createdAt DateTime @default(now())
+  
+  @@map("deals")
+}
+
+model LocationModel {
+  id       String  @id @default(cuid())
+
+  name String
+  code String @unique
+
+  createdAt DateTime @default(now())
+
+  @@map("locations")
+}

@@ -1,0 +1,15 @@
+# Prisma Migrate lockfile v1
+
+20201026212533-postgres-init
+20201026224750-add-relations-with-user
+20201026225722-complete-bid-model
+20201026231204
+20201026231812-update-required-fields
+20201026232553-add-coal-fraction-to-bid-model
+20201027020055-rename-and-restructure-deals
+20201027030417
+20201027030736
+20201027031318
+20201027031637
+20201027032055-rm-redundant-fields-from-deal
+20201028070001-int-ids
